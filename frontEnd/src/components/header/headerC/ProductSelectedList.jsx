@@ -135,7 +135,7 @@ const ProductSelectedList = () => {
                         : theme.palette.text.secondary,
                   }}
                 >
-                  ${item.productPrice} x {item.quantity}
+                  ${item.productPrice} X {item.quantity}
                 </Typography>
 
                 <Typography

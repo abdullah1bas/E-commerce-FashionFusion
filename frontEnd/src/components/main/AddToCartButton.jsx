@@ -20,13 +20,11 @@ const AddToCartButton = ({ clickedProduct }) => {
   const {t} = useTranslation();
   const dispatch = useDispatch();
 
-  const { selectedProducts, selectedProductsID } = useSelector(
-    // @ts-ignore
-    (state) => state.cart
-  );
-  const productQuantity = (itemAPI) => {
+  // @ts-ignore
+  const { selectedProducts, selectedProductsID } = useSelector((state) => state.cart);
+  const productQuantity = (clickProduct) => {
     const myProduct = selectedProducts.find((itemUser) => {
-      return itemUser.id === itemAPI.id;
+      return itemUser.id === clickProduct.id;
     });
     return myProduct.quantity;
   };

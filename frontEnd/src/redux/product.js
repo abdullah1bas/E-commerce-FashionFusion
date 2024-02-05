@@ -15,6 +15,5 @@ export const productApi = createApi({
   }),
 });
 
-// Export hooks for usage in functional components, which are
-// auto-generated based on the defined endpoints
+// useGetproductsByNameQuery(complete Url)
 export const { useGetproductsByNameQuery } = productApi;

@@ -11,10 +11,6 @@ export const getDesignTokens = (mode) => ({
           text: {
             primary: "#2B3445",
           },
-
-
-
-
         myColor: {
           main: "#F6F9FC"
         },
@@ -69,8 +65,7 @@ export const useMode = () => {
 
   const colorMode = useMemo(
     () => ({
-      toggleColorMode: () =>
-        setMode((prev) => (prev === "light" ? "dark" : "light")),
+      toggleColorMode: () => setMode((prev) => (prev === "light" ? "dark" : "light")),
     }),
     []
   );
@@ -78,3 +73,5 @@ export const useMode = () => {
   const theme = useMemo(() => createTheme(getDesignTokens(mode)), [mode]);
   return [theme, colorMode];
 };
+
+// mesh lazem use theme.palette.bg.main === 'bg.main'

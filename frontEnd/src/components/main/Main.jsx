@@ -6,24 +6,20 @@ import {
   Dialog,
   IconButton,
   Typography,
+  useTheme,
 } from "@mui/material";
 import { useState } from "react";
-
 import { Close } from "@mui/icons-material";
 import ProductDetails from "./ProductDetails";
 import { useGetproductsByNameQuery } from "../../redux/product";
 import MainHeader from "./MainHeader";
 import MainProducts from "./MainProducts";
+import { useSelector } from "react-redux";
 
-const Main = ({
-  handleAlignment,
-  allProductsAPI,
-  menCategoryAPI,
-  womenCategoryAPI,
-  jeweleryCategoryAPI,
-  electronicCategoryAPI,
-  myDate,
-}) => {
+const Main = () => {
+  // @ts-ignore
+  const state = useSelector((state) => state.dataAPI);
+
   const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
@@ -34,8 +30,9 @@ const Main = ({
     setOpen(false);
   };
 
-  const { data, error, isLoading } = useGetproductsByNameQuery(myDate);
+  const { data, error, isLoading } = useGetproductsByNameQuery(state.myData);
   const [clickedProduct, setClickedProduct] = useState({});
+  const theme = useTheme();
 
   if (isLoading) {
     return (
@@ -43,9 +40,7 @@ const Main = ({
         <CircularProgress />
       </Box>
     );
-  }
-
-  if (error) {
+  } else if (error) {
     return (
       <Container
         sx={{
@@ -63,28 +58,20 @@ const Main = ({
         <Typography variant="h6">Please try again later</Typography>
       </Container>
     );
-  }
-
-  if (data) {
+  } else {
     return (
       <Container sx={{ py: 9 }}>
-        <MainHeader
-          {...{
-            myDate,
-            handleAlignment,
-            allProductsAPI,
-            menCategoryAPI,
-            womenCategoryAPI,
-            jeweleryCategoryAPI,
-            electronicCategoryAPI,
-          }}
-        />
+        <MainHeader />
 
         <MainProducts {...{ data, setClickedProduct, handleClickOpen }} />
 
-        {/* anyWhere */}
         <Dialog
-          sx={{ ".MuiPaper-root": { minWidth: { xs: "100%", md: 800 } } }}
+          sx={{
+            ".MuiPaper-root": {
+              minWidth: { xs: "100%", md: 900 },
+              [theme.breakpoints.down("sm")]: { height: "60%" },
+            },
+          }}
           open={open}
           onClose={handleClose}
           aria-labelledby="alert-dialog-title"

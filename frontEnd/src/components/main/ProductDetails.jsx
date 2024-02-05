@@ -3,11 +3,13 @@
 import { Box, Stack, Typography } from "@mui/material";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import AddToCartButton from "./AddToCartButton";
 
 const ProductDetails = ({ clickedProduct }) => {
   const [selectedImg, setselectedImg] = useState(0);
+
+  const selectMemo = useMemo(() => selectedImg,[selectedImg])
 
   return (
     <Box
@@ -23,10 +25,10 @@ const ProductDetails = ({ clickedProduct }) => {
         <img
           width={360}
           src={
-            clickedProduct.attributes.productImg.data[selectedImg].attributes
+            clickedProduct.attributes.productImg.data[selectMemo].attributes
               .url
           }
-          alt=""
+          alt={clickedProduct.attributes.productTitle}
         />
       </Box>
 
@@ -48,7 +50,7 @@ const ProductDetails = ({ clickedProduct }) => {
           my={2}
         >
           <ToggleButtonGroup
-            value={selectedImg}
+            value={selectMemo}
             exclusive
             sx={{
               ".Mui-selected": {
@@ -80,7 +82,7 @@ const ProductDetails = ({ clickedProduct }) => {
                     height={"100%"}
                     width={"100%"}
                     src={item.attributes.url}
-                    alt=""
+                    alt={clickedProduct.attributes.productTitle}
                   />
                 </ToggleButton>
               );

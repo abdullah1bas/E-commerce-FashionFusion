@@ -19,11 +19,7 @@ const IconSection = () => {
     <Container
       sx={{ mt: 3, bgcolor: theme.palette.mode === "dark" ? "#000" : "#fff" }}
     >
-      <Stack
-        sx={{ flexWrap: "wrap" }}
-        direction={"row"}
-        alignItems={"center"}
-      >
+      <Stack sx={{ flexWrap: "wrap" }} direction={"row"} alignItems={"center"}>
         <MyBox
           icon={<ElectricBoltIcon fontSize="large" />}
           title={"Fast Delivery"}
@@ -75,7 +71,7 @@ export default IconSection;
 
 // eslint-disable-next-line react/prop-types
 const MyBox = ({ icon, title, subTitle }) => {
-    const {t} = useTranslation();
+  const { t } = useTranslation();
   const theme = useTheme();
   return (
     <Box
@@ -85,7 +81,6 @@ const MyBox = ({ icon, title, subTitle }) => {
         flexGrow: 1,
         alignItems: "center",
         gap: 3,
-
         py: 1.6,
         justifyContent: useMediaQuery("(min-width:600px)") ? "center" : "left",
       }}

@@ -3,9 +3,11 @@ import { configureStore } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/query";
 import { productApi } from "./product";
 import cartReducer from "./cartSlice";
+import changeAPISlice from "./changeAPISlice";
 
 export const store = configureStore({
   reducer: {
+    dataAPI: changeAPISlice,
     //  "cart" ======>  useSelector
     cart: cartReducer,
     // Add the generated reducer as a specific top-level slice

@@ -8,7 +8,7 @@ const ScrollToTop = () => {
     <Zoom in={useScrollTrigger({ threshold: 100 })}>
       <Fab
         onClick={() => {
-          window.scrollTo(0, 0);
+          // window.scrollTo(0, 0);
         }}
         variant="extended"
         size="small"

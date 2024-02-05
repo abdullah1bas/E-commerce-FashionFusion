@@ -6,30 +6,18 @@ import CartButtonIcon from "./headerC/CartButtonIcon";
 import AccountSettings from "./headerC/AccountSettings";
 import { useTranslation } from "react-i18next";
 
-const HeaderSearch = ({
-  setmyDate,
-  allProductsAPI,
-  menCategoryAPI,
-  womenCategoryAPI,
-  jeweleryCategoryAPI,
-  electronicCategoryAPI,
-}) => {
+const HeaderSearch = () => {
   const { t } = useTranslation();
   return (
     <Container sx={{ my: 3, display: "flex", justifyContent: "space-between" }}>
       <Stack alignItems={"center"}>
         <ShoppingCartOutlined />
-        <Typography variant="body2">{t('E-commerce')}</Typography>
+        <Typography variant="body2">{t("E-commerce")}</Typography>
       </Stack>
 
-      {useMediaQuery("(min-width:500px)") && <SearchSelect {...{
-                  setmyDate,
-                  allProductsAPI,
-                  menCategoryAPI,
-                  womenCategoryAPI,
-                  jeweleryCategoryAPI,
-                  electronicCategoryAPI,
-                }} />}
+      {useMediaQuery("(min-width:500px)") && (
+        <SearchSelect />
+      )}
 
       <Stack direction={"row"} alignItems={"center"} gap={1}>
         <CartButtonIcon />

@@ -10,6 +10,8 @@ import Menu from "@mui/material/Menu";
 import { InputBase, styled, useTheme } from "@mui/material";
 import { ExpandMore } from "@mui/icons-material";
 import { useTranslation } from "react-i18next";
+import { useDispatch, useSelector } from "react-redux";
+import { changeAPI } from "../../../redux/changeAPISlice";
 
 const Search = styled("div")(({ theme }) => ({
   flexGrow: 0.4,
@@ -56,14 +58,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 const options = ["All Categories", "Men", "Women", "Electronics", "Jewelery"];
 
 // eslint-disable-next-line react/prop-types, no-unused-vars
-const SearchSelect = ({
-  setmyDate,
-  allProductsAPI,
-  menCategoryAPI,
-  womenCategoryAPI,
-  jeweleryCategoryAPI,
-  electronicCategoryAPI,
-}) => {
+const SearchSelect = () => {
   const { t, i18n } = useTranslation();
   const [anchorEl, setAnchorEl] = useState(null);
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -81,7 +76,8 @@ const SearchSelect = ({
     setAnchorEl(null);
   };
 
-  
+  const state = useSelector(state => state.dataAPI)
+  const dispatch = useDispatch();
 
   const theme = useTheme();
   return (
@@ -161,11 +157,11 @@ const SearchSelect = ({
                 selected={index === selectedIndex}
                 onClick={(event) => {
                   handleMenuItemClick(event, index)
-                  option == "Men" ? setmyDate(menCategoryAPI)
-                  : option == "Women" ? setmyDate(womenCategoryAPI)
-                  : option == "Electronics" ? setmyDate(electronicCategoryAPI)
-                  : option == "Jewelery" ? setmyDate(jeweleryCategoryAPI)
-                  : setmyDate(allProductsAPI)
+                  option == "Men" ? dispatch(changeAPI(state.menCategoryAPI))
+                  : option == "Women" ? dispatch(changeAPI(state.womenCategoryAPI))
+                  : option == "Electronics" ? dispatch(changeAPI(state.electronicCategoryAPI))
+                  : option == "Jewelery" ? dispatch(changeAPI(state.jeweleryCategoryAPI))
+                  : dispatch(changeAPI(state.allProductAPI))
                 }}
               >
                 {t(option)}

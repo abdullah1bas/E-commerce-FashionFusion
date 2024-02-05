@@ -37,12 +37,9 @@ export const counterSlice = createSlice({
 
     increaseQuantity: (state, action) => {
       // action.payload => product From user, we dh b2a obj selected
-      const incresdedProuct = state.selectedProducts.find((item) => {
-        return item.id === action.payload.id;
+      state.selectedProducts.find((item) => {
+        item.id === action.payload.id ? item.quantity += 1 : null
       });
-
-      incresdedProuct.quantity += 1;
-
       localStorage.setItem(
         "selectedProducts",
         JSON.stringify(state.selectedProducts)
@@ -108,7 +105,6 @@ export const counterSlice = createSlice({
 });
 
 //  دائماً هتنساهااااااااااااااااااااااااااااااااااااااع
-export const { deleteProduct, addToCart, increaseQuantity, decreaseQuantity } =
-  counterSlice.actions;
+export const { deleteProduct, addToCart, increaseQuantity, decreaseQuantity } = counterSlice.actions;
 
 export default counterSlice.reducer;

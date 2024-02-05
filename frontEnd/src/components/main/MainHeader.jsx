@@ -4,37 +4,41 @@ import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import { Box, Stack, Typography, useMediaQuery, useTheme } from "@mui/material";
 import { useTranslation } from "react-i18next";
+import { useSelector , useDispatch} from "react-redux";
+import { changeAPI } from "../../redux/changeAPISlice";
 
-const MainHeader = ({
-  myDate,
-  handleAlignment,
-  allProductsAPI,
-  menCategoryAPI,
-  womenCategoryAPI,
-  jeweleryCategoryAPI,
-  electronicCategoryAPI,
-}) => {
-    const {t} = useTranslation();
+const MainHeader = () => {
+  const { t } = useTranslation();
   const theme = useTheme();
+  const dispatch = useDispatch();
+
+  const handleAlignment = (event, newValue) => {
+    if (newValue !== null) {
+      dispatch(changeAPI(newValue));
+    }
+  };
+
+  // @ts-ignore
+  const state = useSelector(state => state.dataAPI)
   return (
     <Stack
       direction={"row"}
       alignItems={"center"}
-      justifyContent={{xs: 'center', sm: "space-between"}}
+      justifyContent={{ xs: "center", sm: "space-between" }}
       flexWrap={"wrap"}
       gap={3}
     >
       <Box>
-        <Typography variant="h6">{t('Selected Products')}</Typography>
+        <Typography variant="h6">{t("Selected Products")}</Typography>
         <Typography fontWeight={300} variant="body1">
-          {t('All our new arrivals in a exclusive brand selection')}
+          {t("All our new arrivals in a exclusive brand selection")}
         </Typography>
       </Box>
 
       <ToggleButtonGroup
         color="error"
         // da al value bta3 al parent we lma value child === y7ot 3la al value select
-        value={t(myDate)}
+        value={t(state.myData)}
         exclusive
         onChange={handleAlignment}
         aria-label="text alignment"
@@ -47,22 +51,22 @@ const MainHeader = ({
         }}
       >
         {[
-          { aria: "left aligned", name: "All Products", value: allProductsAPI },
-          { aria: "centered", name: "Men Category", value: menCategoryAPI },
+          { aria: "left aligned", name: "All Products", value: state.allProductAPI },
+          { aria: "centered", name: "Men Category", value: state.menCategoryAPI },
           {
             aria: "right aligned",
             name: "Women Category",
-            value: womenCategoryAPI,
+            value: state.womenCategoryAPI,
           },
           {
             aria: "right aligned",
             name: "Jewelery Category",
-            value: jeweleryCategoryAPI,
+            value: state.jeweleryCategoryAPI,
           },
           {
             aria: "right aligned",
             name: "Electronics Category",
-            value: electronicCategoryAPI,
+            value: state.electronicCategoryAPI,
           },
         ].map((item) => {
           return (
@@ -76,15 +80,15 @@ const MainHeader = ({
                 color: theme.palette.text.primary,
                 border: `1px solid ${theme.palette.divider} !important`,
                 textTransform: "capitalize",
-                fontSize: "0.875rem" ,
-                px: {xs: '10px !important', sm: '11px !important'}
+                fontSize: "0.875rem",
+                px: { xs: "10px !important", sm: "11px !important" },
               }}
               className="myButton"
               value={item.value}
               aria-label={item.aria}
             >
               {useMediaQuery("(min-width:500px)") && t(item.name)}
-              {useMediaQuery("(max-width:500px)") && t(item.name.split(' ')[0])}
+              {useMediaQuery("(max-width:500px)") && t(item.name.split(" ")[0])}
             </ToggleButton>
           );
         })}

@@ -21,14 +21,10 @@ import {
   Diamond,
 } from "@mui/icons-material";
 import { useTranslation } from "react-i18next";
+import { useDispatch, useSelector } from "react-redux";
+import { changeAPI } from "../../../redux/changeAPISlice";
 
-const CategoriesMenu = ({
-  setmyDate,
-  menCategoryAPI,
-  womenCategoryAPI,
-  jeweleryCategoryAPI,
-  electronicCategoryAPI,
-}) => {
+const CategoriesMenu = () => {
   const { t } = useTranslation();
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
@@ -40,6 +36,10 @@ const CategoriesMenu = ({
   };
 
   const theme = useTheme();
+  // @ts-ignore
+  const state = useSelector(state => state.dataAPI)
+  const dispatch = useDispatch();
+
   return (
     <Box>
       <Tooltip title={t("Categories Menu")}>
@@ -108,12 +108,12 @@ const CategoriesMenu = ({
               onClick={() => {
                 handleClose();
                  item.text == "Women"
-                  ? setmyDate(womenCategoryAPI)
+                  ? dispatch(changeAPI(state.womenCategoryAPI))
                   : item.text == "Electronics"
-                  ? setmyDate(electronicCategoryAPI)
+                  ? dispatch(changeAPI(state.electronicCategoryAPI))
                   : item.text == "Jewelery"
-                  ? setmyDate(jeweleryCategoryAPI)
-                  : setmyDate(menCategoryAPI);
+                  ? dispatch(changeAPI(state.jeweleryCategoryAPI))
+                  : dispatch(changeAPI(state.menCategoryAPI))
               }}
             >
               <ListItemIcon>{item.icon}</ListItemIcon>

@@ -2,7 +2,7 @@ import { Box, Button, Stack, Typography, useTheme } from "@mui/material";
 import { useTranslation } from "react-i18next";
 
 // eslint-disable-next-line react/prop-types
-const SliderCard = ({text }) => {
+const SliderCard = ({ text }) => {
   const {t} = useTranslation();
   const theme = useTheme();
   return (
@@ -72,12 +72,12 @@ const SliderCard = ({text }) => {
           py: 1,
           mt: 2,
           backgroundColor: "#222",
-          boxShadow: "0px 4px 16px rgba(43, 52, 69, 0.1)",
+          boxShadow: "0px 4px 16px rgba(43, 52, 69, 0.1) !important",
           color: "#fff",
           borderRadius: "1px",
           "&:hover": {
             bgcolor: "#151515",
-            boxShadow: "0px 4px 16px rgba(43, 52, 69, 0.1)",
+            boxShadow: "10px 4px 16px rgba(43, 52, 69, 0.1) !important",
           },
         }}
         variant="contained"

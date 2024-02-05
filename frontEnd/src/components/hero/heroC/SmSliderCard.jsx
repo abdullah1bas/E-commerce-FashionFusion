@@ -82,7 +82,7 @@ const SmSliderCard = ({ title, Class, price, img }) => {
               left: "-3px",
               top: "1px",
               transition: ".3s",
-              animation: "ani-arow 1s ease-in-out infinite",
+              animation: "ani-arrow 1s ease-in-out infinite",
               animationPlayState: "paused",
             }}
           />

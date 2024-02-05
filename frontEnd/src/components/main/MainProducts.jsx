@@ -13,10 +13,8 @@ import { useTranslation } from "react-i18next";
 // eslint-disable-next-line react/prop-types
 const MainProducts = ({ data, setClickedProduct, handleClickOpen }) => {
   const {t} = useTranslation();
-  const { selectedProductsID } = useSelector(
-    // @ts-ignore
-    (state) => state.cart
-  );
+  // @ts-ignore
+  const { selectedProductsID } = useSelector((state) => state.cart);
   return (
     <Stack
       direction={"row"}
@@ -27,6 +25,7 @@ const MainProducts = ({ data, setClickedProduct, handleClickOpen }) => {
       <AnimatePresence>
         {data.data.map((item) => {
           return (
+            // example {framer motion filter animation website}
             <Card
               component={motion.section}
               layout
@@ -34,7 +33,8 @@ const MainProducts = ({ data, setClickedProduct, handleClickOpen }) => {
               initial={{ transform: "scale(0)" }}
               // Last State
               animate={{ transform: "scale(1)" }}
-              transition={{ duration: 1.6, type: "spring", stiffness: 50 }}
+              transition={{ duration: 1.6, type: "spring", stiffness: 60 }}
+              exit={{ transform: "scale(0)" }}
               key={item.id}
               sx={{
                 maxWidth: 333,
@@ -64,7 +64,7 @@ const MainProducts = ({ data, setClickedProduct, handleClickOpen }) => {
                   <Typography
                     gutterBottom
                     variant="h6"
-                    component="div"
+                    component="h3"
                     sx={{ textTransform: "capitalize !important" }}
                   >
                     {item.attributes.productTitle}

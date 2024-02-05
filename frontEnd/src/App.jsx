@@ -9,32 +9,12 @@ import Hero from "./components/hero/Hero";
 import Main from "./components/main/Main";
 import Footer from "./components/footer/Footer";
 import ScrollToTop from "./components/scroll/ScrollToTop";
-import { Provider } from "react-redux";
-import { store } from "./redux/store";
-import { useState } from "react";
 
 function App() {
-  const [theme, colorMode] = useMode();
-
-  const handleAlignment = (event, newValue) => {
-    if (newValue !== null) {
-      setmyDate(newValue);
-    }
-  };
-  const allProductsAPI = "products?populate=*";
-  // &(And), filters[category][$eq]=men rg3le
-  // [obj.key(category)][$eq(== equal)]=value(men)
-  const menCategoryAPI = "products?populate=*&filters[category][$eq]=men";
-  const womenCategoryAPI = "products?populate=*&filters[category][$eq]=women";
-  const jeweleryCategoryAPI =
-    "products?populate=*&filters[category][$eq]=jewelery";
-  const electronicCategoryAPI =
-    "products?populate=*&filters[category][$eq]=electronics";
-
-  const [myDate, setmyDate] = useState(allProductsAPI);
+  const [theme, colorMode] = useMode();  
 
   return (
-    <Provider store={store}>
+    
       <ColorModeContext.Provider
         // @ts-ignore
         value={colorMode}
@@ -45,27 +25,9 @@ function App() {
         >
           <CssBaseline />
           <Stack direction={"column"}>
-          <div id="google_translate_element"></div>
             <HeaderMode />
-            <HeaderSearch
-              {...{
-                setmyDate,
-                allProductsAPI,
-                menCategoryAPI,
-                womenCategoryAPI,
-                jeweleryCategoryAPI,
-                electronicCategoryAPI,
-              }}
-            />
-            <HeaderCategories
-              {...{
-                setmyDate,
-                menCategoryAPI,
-                womenCategoryAPI,
-                jeweleryCategoryAPI,
-                electronicCategoryAPI,
-              }}
-            />
+            <HeaderSearch/>
+            <HeaderCategories />
 
             <Box
               bgcolor={
@@ -74,17 +36,7 @@ function App() {
               }
             >
               <Hero />
-              <Main
-                {...{
-                  handleAlignment,
-                  allProductsAPI,
-                  menCategoryAPI,
-                  womenCategoryAPI,
-                  jeweleryCategoryAPI,
-                  electronicCategoryAPI,
-                  myDate,
-                }}
-              />
+              <Main />
             </Box>
 
             <Footer />
@@ -94,7 +46,7 @@ function App() {
           </Stack>
         </ThemeProvider>
       </ColorModeContext.Provider>
-    </Provider>
+    
   );
 }
 
