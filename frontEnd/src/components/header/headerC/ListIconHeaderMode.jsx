@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import {
   IconButton,
   List,
@@ -58,8 +58,13 @@ const ListIconHeaderMode = () => {
     setAnchorEl(null);
   },[anchorEl]);
 
+  const shouldLog = useRef(true);
+
   useEffect(() => {
-    if(localStorage.getItem('langaugeSite') != null) {
+    // if shouldLog == because clean up effect
+    if(shouldLog.current){
+      shouldLog.current = false;
+      if(localStorage.getItem('langaugeSite') != null) {
       i18n
       .use(initReactI18next)
       .init({
@@ -67,7 +72,7 @@ const ListIconHeaderMode = () => {
       })
       document.documentElement.lang = localStorage.getItem('langaugeSite').toLowerCase();
       setSelectedIndex(options.indexOf(localStorage.getItem('langaugeSite')))
-    }
+    }}
   },[selectedIndex])
 
   return (

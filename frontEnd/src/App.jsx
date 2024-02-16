@@ -11,7 +11,7 @@ import Footer from "./components/footer/Footer";
 import ScrollToTop from "./components/scroll/ScrollToTop";
 
 function App() {
-  const [theme, colorMode] = useMode();  
+  const [theme, colorMode] = useMode();
 
   return (
       <ColorModeContext.Provider
