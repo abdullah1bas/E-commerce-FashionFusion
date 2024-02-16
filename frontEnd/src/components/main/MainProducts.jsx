@@ -9,6 +9,7 @@ import AddShoppingCartOutlinedIcon from "@mui/icons-material/AddShoppingCartOutl
 import { AnimatePresence, motion } from "framer-motion";
 import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
+import React from "react";
 
 // eslint-disable-next-line react/prop-types
 const MainProducts = ({ data, setClickedProduct, handleClickOpen }) => {
@@ -119,4 +120,4 @@ const MainProducts = ({ data, setClickedProduct, handleClickOpen }) => {
   );
 };
 
-export default MainProducts;
+export default React.memo(MainProducts);

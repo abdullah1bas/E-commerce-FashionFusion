@@ -14,7 +14,6 @@ function App() {
   const [theme, colorMode] = useMode();  
 
   return (
-    
       <ColorModeContext.Provider
         // @ts-ignore
         value={colorMode}

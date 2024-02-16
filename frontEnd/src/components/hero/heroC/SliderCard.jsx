@@ -1,4 +1,5 @@
 import { Box, Button, Stack, Typography, useTheme } from "@mui/material";
+import React from "react";
 import { useTranslation } from "react-i18next";
 
 // eslint-disable-next-line react/prop-types
@@ -88,4 +89,4 @@ const SliderCard = ({ text }) => {
   );
 };
 
-export default SliderCard;
+export default React.memo(SliderCard);

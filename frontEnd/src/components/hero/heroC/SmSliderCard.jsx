@@ -1,5 +1,6 @@
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { Box, Link, Stack, Typography } from "@mui/material";
+import React from "react";
 import { useTranslation } from "react-i18next";
 
 // eslint-disable-next-line react/prop-types
@@ -92,4 +93,4 @@ const SmSliderCard = ({ title, Class, price, img }) => {
   );
 };
 
-export default SmSliderCard;
+export default React.memo(SmSliderCard);

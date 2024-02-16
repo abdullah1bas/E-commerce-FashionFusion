@@ -19,6 +19,7 @@ import {
 import Swal from "sweetalert2";
 import "./headerC.css";
 import { useTranslation } from "react-i18next";
+import React from "react";
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   "& .MuiBadge-badge": {
@@ -185,4 +186,4 @@ const ProductSelectedList = () => {
   );
 };
 
-export default ProductSelectedList;
+export default React.memo(ProductSelectedList);

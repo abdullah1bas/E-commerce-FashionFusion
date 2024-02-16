@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 // @ts-nocheck
 import SearchIcon from "@mui/icons-material/Search";
-import { useState } from "react";
+import React, { useCallback, useState } from "react";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
@@ -63,20 +63,23 @@ const SearchSelect = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const open = Boolean(anchorEl);
-  const handleClickListItem = (event) => {
+  const handleClickListItem = useCallback((event) => {
     setAnchorEl(event.currentTarget);
-  };
+  }, []);
 
-  const handleMenuItemClick = (event, index) => {
-    setSelectedIndex(index);
+  const handleMenuItemClick = useCallback(
+    (event, index) => {
+      setSelectedIndex(index);
+      setAnchorEl(null);
+    },
+    [selectedIndex]
+  );
+
+  const handleClose = useCallback(() => {
     setAnchorEl(null);
-  };
+  }, [anchorEl]);
 
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
-  const state = useSelector(state => state.dataAPI)
+  const state = useSelector((state) => state.dataAPI);
   const dispatch = useDispatch();
 
   const theme = useTheme();
@@ -156,12 +159,16 @@ const SearchSelect = () => {
                 key={option}
                 selected={index === selectedIndex}
                 onClick={(event) => {
-                  handleMenuItemClick(event, index)
-                  option == "Men" ? dispatch(changeAPI(state.menCategoryAPI))
-                  : option == "Women" ? dispatch(changeAPI(state.womenCategoryAPI))
-                  : option == "Electronics" ? dispatch(changeAPI(state.electronicCategoryAPI))
-                  : option == "Jewelery" ? dispatch(changeAPI(state.jeweleryCategoryAPI))
-                  : dispatch(changeAPI(state.allProductAPI))
+                  handleMenuItemClick(event, index);
+                  option == "Men"
+                    ? dispatch(changeAPI(state.menCategoryAPI))
+                    : option == "Women"
+                    ? dispatch(changeAPI(state.womenCategoryAPI))
+                    : option == "Electronics"
+                    ? dispatch(changeAPI(state.electronicCategoryAPI))
+                    : option == "Jewelery"
+                    ? dispatch(changeAPI(state.jeweleryCategoryAPI))
+                    : dispatch(changeAPI(state.allProductAPI));
                 }}
               >
                 {t(option)}
@@ -174,4 +181,4 @@ const SearchSelect = () => {
   );
 };
 
-export default SearchSelect;
+export default React.memo(SearchSelect);

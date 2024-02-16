@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import React, { useContext } from "react";
 import { ColorModeContext } from "../../../theme";
 import { IconButton, Tooltip, useTheme } from "@mui/material";
 import { DarkModeOutlined, LightModeOutlined } from "@mui/icons-material";
@@ -45,4 +45,4 @@ const ModeIcon = () => {
   );
 };
 
-export default ModeIcon;
+export default React.memo(ModeIcon);

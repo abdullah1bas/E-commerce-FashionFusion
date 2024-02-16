@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useCallback, useState } from "react";
 import {
   IconButton,
   Tooltip,
@@ -17,15 +17,15 @@ import {
 import { useTranslation } from "react-i18next";
 
 const AccountSettings = () => {
-    const { t } = useTranslation();
+  const { t } = useTranslation();
   const [anchorEl, setAnchorEl] = useState(null);
   const openMenu = Boolean(anchorEl);
-  const handleClick = (event) => {
+  const handleClick = useCallback((event) => {
     setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
+  },[anchorEl]);
+  const handleClose = useCallback(() => {
     setAnchorEl(null);
-  };
+  },[anchorEl]);
   return (
     <>
       <Tooltip title={t("Account settings")}>
@@ -105,4 +105,4 @@ const AccountSettings = () => {
   );
 };
 
-export default AccountSettings;
+export default React.memo(AccountSettings);

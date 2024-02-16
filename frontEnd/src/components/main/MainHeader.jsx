@@ -6,17 +6,18 @@ import { Box, Stack, Typography, useMediaQuery, useTheme } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { useSelector , useDispatch} from "react-redux";
 import { changeAPI } from "../../redux/changeAPISlice";
+import React, { useCallback } from "react";
 
 const MainHeader = () => {
   const { t } = useTranslation();
   const theme = useTheme();
   const dispatch = useDispatch();
 
-  const handleAlignment = (event, newValue) => {
+  const handleAlignment = useCallback((event, newValue) => {
     if (newValue !== null) {
       dispatch(changeAPI(newValue));
     }
-  };
+  },[]);
 
   // @ts-ignore
   const state = useSelector(state => state.dataAPI)
@@ -97,4 +98,4 @@ const MainHeader = () => {
   );
 };
 
-export default MainHeader;
+export default React.memo(MainHeader);

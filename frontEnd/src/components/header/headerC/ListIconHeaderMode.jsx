@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import {
   IconButton,
   List,
@@ -16,48 +16,47 @@ import { initReactI18next } from 'react-i18next';
 const options=["EN", "FR", "AR", "CHI", "RUS"];
 
 const ListIconHeaderMode = () => {
-
-  const changeEN = () => {
+  const changeEN = useCallback(() => {
     i18n.changeLanguage("EN");
     document.documentElement.lang = "en";
     localStorage.setItem("langaugeSite", "EN");
-  };
-  const changeFR = () => {
+  },[]);
+  const changeFR = useCallback(() => {
     i18n.changeLanguage("FR");
     document.documentElement.lang = "fr";
     localStorage.setItem("langaugeSite", "FR");
-  };
-  const changeAR = () => {
+  },[]);
+  const changeAR = useCallback(() => {
     i18n.changeLanguage("AR");
     document.documentElement.lang = "ar";
     localStorage.setItem("langaugeSite", "AR");
-  };
-  const changeCHI = () => {
+  },[]);
+  const changeCHI = useCallback( () => {
     i18n.changeLanguage("CHI");
     document.documentElement.lang = "zh";
     localStorage.setItem("langaugeSite", "CHI");
-  };
-  const changeRU = () => {
+  },[]);
+  const changeRU = useCallback(() => {
     i18n.changeLanguage("RUS");
     document.documentElement.lang = "ru";
     localStorage.setItem("langaugeSite", "RUS");
-  };
+  },[]);
 
   const [anchorEl, setAnchorEl] = useState(null);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const open = Boolean(anchorEl);
-  const handleClickListItem = (event) => {
+  const handleClickListItem = useCallback((event) => {
     setAnchorEl(event.currentTarget);
-  };
+  },[anchorEl]);
 
-  const handleMenuItemClick = (index) => {
+  const handleMenuItemClick = useCallback((index) => {
     setSelectedIndex(index);
     setAnchorEl(null);
-  };
+  },[selectedIndex]);
 
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     setAnchorEl(null);
-  };
+  },[anchorEl]);
 
   useEffect(() => {
     if(localStorage.getItem('langaugeSite') != null) {
@@ -168,4 +167,4 @@ const ListIconHeaderMode = () => {
   );
 };
 
-export default ListIconHeaderMode;
+export default React.memo(ListIconHeaderMode);

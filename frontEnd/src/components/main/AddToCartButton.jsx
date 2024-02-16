@@ -10,6 +10,7 @@ import {
 import Swal from "sweetalert2";
 import "./Main.css";
 import { useTranslation } from "react-i18next";
+import React, { useCallback } from "react";
 
 // eslint-disable-next-line no-unused-vars
 const StyledBadge = styled(Badge)(({ theme }) => ({
@@ -22,12 +23,12 @@ const AddToCartButton = ({ clickedProduct }) => {
 
   // @ts-ignore
   const { selectedProducts, selectedProductsID } = useSelector((state) => state.cart);
-  const productQuantity = (clickProduct) => {
+  const productQuantity = useCallback((clickProduct) => {
     const myProduct = selectedProducts.find((itemUser) => {
       return itemUser.id === clickProduct.id;
     });
     return myProduct.quantity;
-  };
+  },[selectedProducts]);
   return (
     <>
       {selectedProductsID.includes(clickedProduct.id) ? (
@@ -103,4 +104,4 @@ const AddToCartButton = ({ clickedProduct }) => {
   );
 };
 
-export default AddToCartButton;
+export default React.memo(AddToCartButton);

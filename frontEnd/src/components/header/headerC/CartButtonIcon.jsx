@@ -13,7 +13,7 @@ import {
   styled,
   useTheme,
 } from "@mui/material";
-import { useState } from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import ProductSelectedList from "./ProductSelectedList";
 import { useTranslation } from "react-i18next";
@@ -159,4 +159,4 @@ const CartButtonIcon = () => {
   );
 };
 
-export default CartButtonIcon;
+export default React.memo(CartButtonIcon);

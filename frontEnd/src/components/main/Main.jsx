@@ -8,7 +8,7 @@ import {
   Typography,
   useTheme,
 } from "@mui/material";
-import { useState } from "react";
+import React, { useCallback, useState } from "react";
 import { Close } from "@mui/icons-material";
 import ProductDetails from "./ProductDetails";
 import { useGetproductsByNameQuery } from "../../redux/product";
@@ -22,13 +22,13 @@ const Main = () => {
 
   const [open, setOpen] = useState(false);
 
-  const handleClickOpen = () => {
+  const handleClickOpen = useCallback(() => {
     setOpen(true);
-  };
+  },[open]);
 
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     setOpen(false);
-  };
+  },[open]);
 
   const { data, error, isLoading } = useGetproductsByNameQuery(state.myData);
   const [clickedProduct, setClickedProduct] = useState({});
@@ -96,4 +96,4 @@ const Main = () => {
   }
 };
 
-export default Main;
+export default React.memo(Main);

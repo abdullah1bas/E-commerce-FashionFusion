@@ -14,7 +14,7 @@ export const changeAPISlice = createSlice({
         // dool al actions 2le bna5odhom export n8yr behom state
         changeAPI: (state, action) => {
             state.myData = action.payload;
-        }, 
+        },
     }
   })
 // al slice feh gwah 7aga asmha reducer & action

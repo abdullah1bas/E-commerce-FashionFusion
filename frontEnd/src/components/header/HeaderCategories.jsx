@@ -3,6 +3,7 @@
 import { Container } from "@mui/material";
 import AccordionMenu from "./headerC/AccordionMenu";
 import CategoriesMenu from "./headerC/CategoriesMenu";
+import React from "react";
 
 const HeaderCategories = () => {
   return (
@@ -21,4 +22,4 @@ const HeaderCategories = () => {
   );
 };
 
-export default HeaderCategories;
+export default React.memo(HeaderCategories);

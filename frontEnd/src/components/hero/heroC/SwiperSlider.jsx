@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 import SliderCard from "./SliderCard";
 import { useTranslation } from "react-i18next";
+import React from "react";
 
 const mySlider = [
   { text: "MEN", link: "./images/banner-15.jpg" },
@@ -38,4 +39,4 @@ const SwiperSlider = () => {
   );
 };
 
-export default SwiperSlider;
+export default React.memo(SwiperSlider);

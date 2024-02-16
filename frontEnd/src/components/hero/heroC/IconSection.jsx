@@ -12,6 +12,7 @@ import CreditScoreOutlinedIcon from "@mui/icons-material/CreditScoreOutlined";
 import WorkspacePremiumOutlinedIcon from "@mui/icons-material/WorkspacePremiumOutlined";
 import AccessAlarmOutlinedIcon from "@mui/icons-material/AccessAlarmOutlined";
 import { useTranslation } from "react-i18next";
+import React from "react";
 
 const IconSection = () => {
   const theme = useTheme();
@@ -67,7 +68,7 @@ const IconSection = () => {
   );
 };
 
-export default IconSection;
+export default React.memo(IconSection);
 
 // eslint-disable-next-line react/prop-types
 const MyBox = ({ icon, title, subTitle }) => {

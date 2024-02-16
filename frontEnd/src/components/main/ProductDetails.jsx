@@ -3,7 +3,7 @@
 import { Box, Stack, Typography } from "@mui/material";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
-import { useMemo, useState } from "react";
+import React, { useMemo, useState } from "react";
 import AddToCartButton from "./AddToCartButton";
 
 const ProductDetails = ({ clickedProduct }) => {
@@ -96,4 +96,4 @@ const ProductDetails = ({ clickedProduct }) => {
   );
 };
 
-export default ProductDetails;
+export default React.memo(ProductDetails);
