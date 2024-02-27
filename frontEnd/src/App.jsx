@@ -1,5 +1,4 @@
-import { Box, Stack } from "@mui/material";
-import { CssBaseline, ThemeProvider } from "@mui/material";
+import { Box, Stack , CssBaseline, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "./theme";
 import { Outlet } from "react-router-dom";
 import HeaderMode from "./components/header/HeaderMode";

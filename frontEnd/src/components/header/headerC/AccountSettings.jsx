@@ -1,19 +1,6 @@
-import React, { useCallback, useState } from "react";
-import {
-  IconButton,
-  Tooltip,
-  Avatar,
-  Menu,
-  MenuItem,
-  ListItemIcon,
-  Divider,
-} from "@mui/material";
-import {
-  PersonOutlined,
-  PersonAdd,
-  Settings,
-  Logout,
-} from "@mui/icons-material";
+import { useCallback, useState } from "react";
+import { IconButton, Tooltip, Avatar, Menu, MenuItem, ListItemIcon, Divider, } from "@mui/material";
+import { PersonOutlined, PersonAdd, Settings, Logout, } from "@mui/icons-material";
 import { useTranslation } from "react-i18next";
 
 const AccountSettings = () => {
@@ -105,4 +92,4 @@ const AccountSettings = () => {
   );
 };
 
-export default React.memo(AccountSettings);
+export default AccountSettings;

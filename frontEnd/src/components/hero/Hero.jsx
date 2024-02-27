@@ -1,5 +1,4 @@
 import { Box, Container } from "@mui/material";
-
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
@@ -7,7 +6,6 @@ import "./slider.css";
 import IconSection from "./heroC/IconSection";
 import SmSliderCard from "./heroC/SmSliderCard";
 import SwiperSlider from "./heroC/SwiperSlider";
-import React from "react";
 
 const Hero = () => {
   return (
@@ -38,4 +36,4 @@ const Hero = () => {
   );
 };
 
-export default React.memo(Hero);
+export default Hero;

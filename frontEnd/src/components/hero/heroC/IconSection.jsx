@@ -1,18 +1,6 @@
-import {
-  Box,
-  Container,
-  Divider,
-  Stack,
-  Typography,
-  useMediaQuery,
-  useTheme,
-} from "@mui/material";
-import ElectricBoltIcon from "@mui/icons-material/ElectricBolt";
-import CreditScoreOutlinedIcon from "@mui/icons-material/CreditScoreOutlined";
-import WorkspacePremiumOutlinedIcon from "@mui/icons-material/WorkspacePremiumOutlined";
-import AccessAlarmOutlinedIcon from "@mui/icons-material/AccessAlarmOutlined";
+import { Box, Container, Divider, Stack, Typography, useMediaQuery, useTheme } from "@mui/material";
+import { ElectricBolt, CreditScoreOutlined, WorkspacePremiumOutlined, AccessAlarmOutlined} from "@mui/icons-material";
 import { useTranslation } from "react-i18next";
-import React from "react";
 
 const IconSection = () => {
   const theme = useTheme();
@@ -22,7 +10,7 @@ const IconSection = () => {
     >
       <Stack sx={{ flexWrap: "wrap" }} direction={"row"} alignItems={"center"}>
         <MyBox
-          icon={<ElectricBoltIcon fontSize="large" />}
+          icon={<ElectricBolt fontSize="large" />}
           title={"Fast Delivery"}
           subTitle={"Start from $10"}
         />
@@ -36,7 +24,7 @@ const IconSection = () => {
           }}
         />
         <MyBox
-          icon={<WorkspacePremiumOutlinedIcon fontSize="large" />}
+          icon={<WorkspacePremiumOutlined fontSize="large" />}
           title={"Money Guarantee"}
           subTitle={"7 Days Back"}
         />
@@ -50,7 +38,7 @@ const IconSection = () => {
           }}
         />
         <MyBox
-          icon={<AccessAlarmOutlinedIcon fontSize="large" />}
+          icon={<AccessAlarmOutlined fontSize="large" />}
           title={"365 Days"}
           subTitle={"For free return"}
         />
@@ -59,7 +47,7 @@ const IconSection = () => {
         ) : null}
 
         <MyBox
-          icon={<CreditScoreOutlinedIcon fontSize="large" />}
+          icon={<CreditScoreOutlined fontSize="large" />}
           title={"Payment"}
           subTitle={"Secure system"}
         />
@@ -68,7 +56,7 @@ const IconSection = () => {
   );
 };
 
-export default React.memo(IconSection);
+export default IconSection;
 
 // eslint-disable-next-line react/prop-types
 const MyBox = ({ icon, title, subTitle }) => {

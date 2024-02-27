@@ -1,25 +1,7 @@
 /* eslint-disable react/prop-types */
-import {
-  Box,
-  ListItemIcon,
-  ListItemText,
-  Tooltip,
-  Typography,
-  useTheme,
-} from "@mui/material";
-import React, { useCallback, useState } from "react";
-import Button from "@mui/material/Button";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
-
-import WindowIcon from "@mui/icons-material/Window";
-import KeyboardArrowRightOutlinedIcon from "@mui/icons-material/KeyboardArrowRightOutlined";
-import {
-  LaptopChromebookOutlined,
-  Female,
-  Male,
-  Diamond,
-} from "@mui/icons-material";
+import { useCallback, useState } from "react";
+import { Box, ListItemIcon, ListItemText, Tooltip, Typography, useTheme, Button, Menu, MenuItem } from "@mui/material";
+import { LaptopChromebookOutlined, Female, Male, Diamond, Window, KeyboardArrowRightOutlined } from "@mui/icons-material";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { changeAPI } from "../../../redux/changeAPISlice";
@@ -57,7 +39,7 @@ const CategoriesMenu = () => {
             color: theme.palette.text.secondary,
           }}
         >
-          <WindowIcon />
+          <Window />
           <Typography
             sx={{
               padding: "0",
@@ -69,7 +51,7 @@ const CategoriesMenu = () => {
           </Typography>
           <Box flexGrow={1} />
 
-          <KeyboardArrowRightOutlinedIcon />
+          <KeyboardArrowRightOutlined />
         </Button>
       </Tooltip>
 
@@ -127,4 +109,4 @@ const CategoriesMenu = () => {
   );
 };
 
-export default React.memo(CategoriesMenu);
+export default CategoriesMenu;

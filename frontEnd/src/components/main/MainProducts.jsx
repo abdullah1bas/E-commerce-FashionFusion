@@ -1,15 +1,9 @@
 /* eslint-disable react/prop-types */
-import { Box, Button, Rating, Stack, Tooltip, Typography } from "@mui/material";
-
-import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
+import { Box, Button, Rating, Stack, Tooltip, Typography, Card, CardActions, CardContent, CardMedia} from "@mui/material";
 import AddShoppingCartOutlinedIcon from "@mui/icons-material/AddShoppingCartOutlined";
 import { AnimatePresence, motion } from "framer-motion";
 import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
-import React from "react";
 
 // eslint-disable-next-line react/prop-types
 const MainProducts = ({ data, setClickedProduct, handleClickOpen }) => {
@@ -120,4 +114,4 @@ const MainProducts = ({ data, setClickedProduct, handleClickOpen }) => {
   );
 };
 
-export default React.memo(MainProducts);
+export default MainProducts;

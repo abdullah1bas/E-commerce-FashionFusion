@@ -1,13 +1,5 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
-import {
-  IconButton,
-  List,
-  ListItem,
-  ListItemText,
-  Menu,
-  MenuItem,
-  Tooltip,
-} from "@mui/material";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { IconButton, List, ListItem, ListItemText, Menu, MenuItem, Tooltip, } from "@mui/material";
 import { ExpandMore, Facebook, Instagram, Twitter } from "@mui/icons-material";
 import ModeIcon from "./ModeIcon";
 import i18n from 'i18next';
@@ -172,4 +164,4 @@ const ListIconHeaderMode = () => {
   );
 };
 
-export default React.memo(ListIconHeaderMode);
+export default ListIconHeaderMode;

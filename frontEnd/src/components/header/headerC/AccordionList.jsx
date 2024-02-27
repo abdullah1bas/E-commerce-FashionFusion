@@ -1,10 +1,5 @@
-import Accordion from "@mui/material/Accordion";
-import AccordionSummary from "@mui/material/AccordionSummary";
+import { ListItemText, Typography, Accordion, AccordionSummary , List, ListItem, ListItemButton} from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import { ListItemText, Typography } from "@mui/material";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 

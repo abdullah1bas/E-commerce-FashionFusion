@@ -1,13 +1,8 @@
 /* eslint-disable react/prop-types */
 // @ts-nocheck
 import SearchIcon from "@mui/icons-material/Search";
-import React, { useCallback, useState } from "react";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemText from "@mui/material/ListItemText";
-import MenuItem from "@mui/material/MenuItem";
-import Menu from "@mui/material/Menu";
-import { InputBase, styled, useTheme } from "@mui/material";
+import { useCallback, useState } from "react";
+import { InputBase, styled, useTheme , List, ListItem, ListItemText, MenuItem, Menu } from "@mui/material";
 import { ExpandMore } from "@mui/icons-material";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
@@ -181,4 +176,4 @@ const SearchSelect = () => {
   );
 };
 
-export default React.memo(SearchSelect);
+export default SearchSelect;

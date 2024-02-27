@@ -1,14 +1,11 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/no-unescaped-entities */
-import { Box, Stack, Typography } from "@mui/material";
-import ToggleButton from "@mui/material/ToggleButton";
-import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
-import React, { useMemo, useState } from "react";
+import { Box, Stack, Typography, ToggleButton, ToggleButtonGroup } from "@mui/material";
+import { useMemo, useState } from "react";
 import AddToCartButton from "./AddToCartButton";
 
 const ProductDetails = ({ clickedProduct }) => {
   const [selectedImg, setselectedImg] = useState(0);
-
   const selectMemo = useMemo(() => selectedImg,[selectedImg])
 
   return (
@@ -96,4 +93,4 @@ const ProductDetails = ({ clickedProduct }) => {
   );
 };
 
-export default React.memo(ProductDetails);
+export default ProductDetails;

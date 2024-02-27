@@ -1,9 +1,7 @@
 /* eslint-disable react/prop-types */
-
 import { Container } from "@mui/material";
 import AccordionMenu from "./headerC/AccordionMenu";
 import CategoriesMenu from "./headerC/CategoriesMenu";
-import React from "react";
 
 const HeaderCategories = () => {
   return (
@@ -22,4 +20,4 @@ const HeaderCategories = () => {
   );
 };
 
-export default React.memo(HeaderCategories);
+export default HeaderCategories;

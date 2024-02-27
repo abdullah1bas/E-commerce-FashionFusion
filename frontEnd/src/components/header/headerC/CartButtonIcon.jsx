@@ -1,19 +1,7 @@
 // @ts-nocheck
 import { Close, ShoppingBagOutlined, ShoppingCart } from "@mui/icons-material";
-import {
-  Badge,
-  Box,
-  Button,
-  Divider,
-  Drawer,
-  IconButton,
-  Stack,
-  Tooltip,
-  Typography,
-  styled,
-  useTheme,
-} from "@mui/material";
-import React, { useState } from "react";
+import { Badge, Box, Button, Divider, Drawer, IconButton, Stack, Tooltip, Typography, styled, useTheme } from "@mui/material";
+import { useState } from "react";
 import { useSelector } from "react-redux";
 import ProductSelectedList from "./ProductSelectedList";
 import { useTranslation } from "react-i18next";
@@ -159,4 +147,4 @@ const CartButtonIcon = () => {
   );
 };
 
-export default React.memo(CartButtonIcon);
+export default CartButtonIcon;

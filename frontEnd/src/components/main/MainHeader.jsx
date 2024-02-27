@@ -1,12 +1,10 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable react/prop-types */
-import ToggleButton from "@mui/material/ToggleButton";
-import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
-import { Box, Stack, Typography, useMediaQuery, useTheme } from "@mui/material";
+import { Box, Stack, Typography, useMediaQuery, useTheme, ToggleButton , ToggleButtonGroup} from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { useSelector , useDispatch} from "react-redux";
 import { changeAPI } from "../../redux/changeAPISlice";
-import React, { useCallback } from "react";
+import { useCallback } from "react";
 
 const MainHeader = () => {
   const { t } = useTranslation();
@@ -98,4 +96,4 @@ const MainHeader = () => {
   );
 };
 
-export default React.memo(MainHeader);
+export default MainHeader;

@@ -1,25 +1,11 @@
 // @ts-nocheck
 import { Add, Close, Remove } from "@mui/icons-material";
-import {
-  Badge,
-  Box,
-  Divider,
-  IconButton,
-  Stack,
-  Typography,
-  styled,
-  useTheme,
-} from "@mui/material";
+import { Badge, Box, Divider, IconButton, Stack, Typography, styled, useTheme } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  decreaseQuantity,
-  deleteProduct,
-  increaseQuantity,
-} from "../../../redux/cartSlice";
+import { decreaseQuantity, deleteProduct, increaseQuantity } from "../../../redux/cartSlice";
 import Swal from "sweetalert2";
 import "./headerC.css";
 import { useTranslation } from "react-i18next";
-import React from "react";
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   "& .MuiBadge-badge": {
@@ -186,4 +172,4 @@ const ProductSelectedList = () => {
   );
 };
 
-export default React.memo(ProductSelectedList);
+export default ProductSelectedList;

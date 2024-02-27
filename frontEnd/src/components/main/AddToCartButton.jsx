@@ -1,16 +1,12 @@
 /* eslint-disable react/prop-types */
 import { Add, Remove, ShoppingCart } from "@mui/icons-material";
 import { Badge, Button, IconButton, Stack, styled } from "@mui/material";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  addToCart,
-  decreaseQuantity,
-  increaseQuantity,
-} from "../../redux/cartSlice";
+import { addToCart, decreaseQuantity, increaseQuantity } from "../../redux/cartSlice";
 import Swal from "sweetalert2";
 import "./Main.css";
 import { useTranslation } from "react-i18next";
-import React, { useCallback } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useCallback } from "react";
 
 // eslint-disable-next-line no-unused-vars
 const StyledBadge = styled(Badge)(({ theme }) => ({
@@ -104,4 +100,4 @@ const AddToCartButton = ({ clickedProduct }) => {
   );
 };
 
-export default React.memo(AddToCartButton);
+export default AddToCartButton;

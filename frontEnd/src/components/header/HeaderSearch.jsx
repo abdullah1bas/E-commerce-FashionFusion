@@ -5,7 +5,6 @@ import SearchSelect from "./headerC/SearchSelect";
 import CartButtonIcon from "./headerC/CartButtonIcon";
 import AccountSettings from "./headerC/AccountSettings";
 import { useTranslation } from "react-i18next";
-import React from "react";
 
 const HeaderSearch = () => {
   const { t } = useTranslation();
@@ -29,4 +28,4 @@ const HeaderSearch = () => {
   );
 };
 
-export default React.memo(HeaderSearch);
+export default HeaderSearch;

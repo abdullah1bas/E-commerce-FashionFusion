@@ -1,8 +1,6 @@
 import { Box, Container, Stack, Typography } from "@mui/material";
 import ListIconHeaderMode from "./headerC/ListIconHeaderMode";
 import { useTranslation } from 'react-i18next';
-import React from "react";
-
 
 const HeaderMode = () => {
   const { t } = useTranslation();
@@ -53,4 +51,4 @@ const HeaderMode = () => {
   );
 };
 
-export default React.memo(HeaderMode);
+export default HeaderMode;

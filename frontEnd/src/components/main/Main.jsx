@@ -1,20 +1,12 @@
 /* eslint-disable react/prop-types */
-import {
-  Box,
-  CircularProgress,
-  Container,
-  Dialog,
-  IconButton,
-  Typography,
-  useTheme,
-} from "@mui/material";
-import React, { useCallback, useState } from "react";
+import { Box, CircularProgress, Container, Dialog, IconButton, Typography, useTheme } from "@mui/material";
+import { useCallback, useState } from "react";
 import { Close } from "@mui/icons-material";
 import ProductDetails from "./ProductDetails";
-import { useGetproductsByNameQuery } from "../../redux/product";
 import MainHeader from "./MainHeader";
 import MainProducts from "./MainProducts";
 import { useSelector } from "react-redux";
+import { useGetproductsByNameQuery } from "../../redux/product";
 
 const Main = () => {
   // @ts-ignore
@@ -96,4 +88,4 @@ const Main = () => {
   }
 };
 
-export default React.memo(Main);
+export default Main;
