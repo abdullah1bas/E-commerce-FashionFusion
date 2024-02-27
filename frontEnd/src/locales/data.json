@@ -85,7 +85,11 @@
     "SALE 20% OFF": "VENTE 20% DE RÉDUCTION",
     "GAMING 4K": "JEU 4K",
     "DESKTOPS &": "ORDINATEURS DE ORDINATEURS ET",
-    "LAPTOPS": "ORDINATEURS PORTABLES"
+    "LAPTOPS": "ORDINATEURS PORTABLES",
+    "Transilation Lang": "Langue de transition",
+    "Twitter": "Twitter",
+    "Facebook": "Facebook",
+    "Instagram": "Instagram"
   },
   "ar": {
     "HOT": "ساخن",
@@ -173,7 +177,11 @@
     "SALE 20% OFF": "خصم 20%",
     "GAMING 4K": "الألعاب 4K",
     "DESKTOPS &": "أجهزة الكمبيوتر المكتبية و",
-    "LAPTOPS": "أجهزة الكمبيوتر المحمولة"
+    "LAPTOPS": "أجهزة الكمبيوتر المحمولة",
+    "Transilation Lang": "الترجمة",
+    "Twitter": "تويتر",
+    "Facebook": "فيسبوك",
+    "Instagram": "انستغرام"
   },
   "chi": {
     "HOT": "горячий",
@@ -257,7 +265,11 @@
     "SALE 20% OFF": "促销 20% 折扣",
     "GAMING 4K": "游戏4K",
     "DESKTOPS &": "台式机&",
-    "LAPTOPS": "笔记本电脑"
+    "LAPTOPS": "笔记本电脑",
+    "Transilation Lang": "平移郎",
+    "Twitter": "推特",
+    "Facebook": "Facebook",
+    "Instagram": "Instagram"
   },
   "ru": {
     "HOT": "Горячий",
@@ -341,6 +353,10 @@
     "SALE 20% OFF": "СКИДКА 20%",
     "GAMING 4K": "ИГРОВОЕ 4К",
     "DESKTOPS &": "НАСТОЛЬНЫЕ СТОПЫ И",
-    "LAPTOPS": "НОУТБУКЫ"
+    "LAPTOPS": "НОУТБУКЫ",
+    "Transilation Lang": "Язык перевода",
+    "Twitter": "Твиттер",
+    "Facebook": "Фейсбук",
+    "Instagram": "Инстаграм"
   }
 }

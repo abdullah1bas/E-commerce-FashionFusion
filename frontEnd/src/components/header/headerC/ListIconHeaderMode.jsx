@@ -4,6 +4,7 @@ import { ExpandMore, Facebook, Instagram, Twitter } from "@mui/icons-material";
 import ModeIcon from "./ModeIcon";
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
+import { t } from "i18next";
 
 const options=["EN", "FR", "AR", "CHI", "RUS"];
 
@@ -72,7 +73,7 @@ const ListIconHeaderMode = () => {
       <ModeIcon />
 
       <div>
-        <Tooltip title='Transilation Lang'>
+        <Tooltip title={t('Transilation Lang')}>
           <List component="nav" aria-label="Device settings" sx={{ p: 0, m: 0 }}>
             <ListItem
               id="lock-button"
@@ -128,7 +129,7 @@ const ListIconHeaderMode = () => {
         </Menu>
       </div>
 
-      <Tooltip title="Twitter">
+      <Tooltip title={t("Twitter")}>
         <IconButton href="https://www.twitter.com/">
           <Twitter
             sx={{
@@ -139,7 +140,7 @@ const ListIconHeaderMode = () => {
         </IconButton>
       </Tooltip>
 
-      <Tooltip title="Facebook">
+      <Tooltip title={t("Facebook")}>
         <IconButton href="https://www.facebook.com/">
           <Facebook
             sx={{
@@ -150,7 +151,7 @@ const ListIconHeaderMode = () => {
         </IconButton>
       </Tooltip>
       
-      <Tooltip title="Instagram">
+      <Tooltip title={t("Instagram")}>
         <IconButton href="https://www.instagram.com/">
           <Instagram
             sx={{
