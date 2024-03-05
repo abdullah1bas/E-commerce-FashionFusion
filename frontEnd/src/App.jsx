@@ -8,6 +8,9 @@ import Hero from "./components/hero/Hero";
 import Main from "./components/main/Main";
 import Footer from "./components/footer/Footer";
 import ScrollToTop from "./components/scroll/ScrollToTop";
+import HeaderContainer from "./components/header/HeaderContainer";
+
+const headerComponents = [HeaderMode, HeaderSearch, HeaderCategories]
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -23,9 +26,7 @@ function App() {
         >
           <CssBaseline />
           <Stack direction={"column"}>
-            <HeaderMode />
-            <HeaderSearch/>
-            <HeaderCategories />
+            <HeaderContainer headerComponents={headerComponents} />
 
             <Box
               bgcolor={
