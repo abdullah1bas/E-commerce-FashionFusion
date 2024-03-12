@@ -1,6 +1,19 @@
 // @ts-nocheck
 import { Close, ShoppingBagOutlined, ShoppingCart } from "@mui/icons-material";
-import { Badge, Box, Button, Divider, Drawer, IconButton, Stack, Tooltip, Typography, styled, useTheme } from "@mui/material";
+import {
+  Badge,
+  Box,
+  Button,
+  Divider,
+  Drawer,
+  Fade,
+  IconButton,
+  Stack,
+  Tooltip,
+  Typography,
+  styled,
+  useTheme,
+} from "@mui/material";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import ProductSelectedList from "./ProductSelectedList";
@@ -40,7 +53,11 @@ const CartButtonIcon = () => {
   );
   return (
     <>
-      <Tooltip title={t("Shopping Cart")}>
+      <Tooltip
+        TransitionComponent={Fade}
+        TransitionProps={{ timeout: 600 }}
+        title={t("Shopping Cart")}
+      >
         <IconButton aria-label="cart" onClick={toggleDrawer(true)}>
           <StyledBadge badgeContent={selectedProducts.length} color="primary">
             <ShoppingCart />
@@ -54,7 +71,10 @@ const CartButtonIcon = () => {
         open={state}
         onClose={toggleDrawer(false)}
       >
-        <Box sx={{ width: {xs: 300, sm: 400}, height: "100vh" }} role="presentation">
+        <Box
+          sx={{ width: { xs: 300, sm: 400 }, height: "100vh" }}
+          role="presentation"
+        >
           <Stack
             p={2}
             direction={"row"}
@@ -72,9 +92,12 @@ const CartButtonIcon = () => {
                     : theme.palette.info.main,
               }}
             >
-              <ShoppingBagOutlined fontSize="large" sx={{fontSize: {xs: 30, sm: '2.1875rem'},}} />
-              <Typography sx={{ fontSize: {xs: 13, sm: 17} }}>
-                {selectedProducts.length} {t('Item')}
+              <ShoppingBagOutlined
+                fontSize="large"
+                sx={{ fontSize: { xs: 30, sm: "2.1875rem" } }}
+              />
+              <Typography sx={{ fontSize: { xs: 13, sm: 17 } }}>
+                {selectedProducts.length} {t("Item")}
               </Typography>
             </Box>
 
@@ -113,7 +136,7 @@ const CartButtonIcon = () => {
               }}
               onClick={toggleDrawer(false)}
             >
-              {t('Checkout Now')} (${subtotal.toFixed(2)})
+              {t("Checkout Now")} (${subtotal.toFixed(2)})
             </Button>
             <Button
               variant="outlined"
@@ -138,7 +161,7 @@ const CartButtonIcon = () => {
               }}
               onClick={toggleDrawer(false)}
             >
-              {t('View Cart')}
+              {t("View Cart")}
             </Button>
           </Stack>
         </Box>

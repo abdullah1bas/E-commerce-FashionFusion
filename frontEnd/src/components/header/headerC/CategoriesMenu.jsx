@@ -1,7 +1,25 @@
 /* eslint-disable react/prop-types */
 import { useCallback, useState } from "react";
-import { Box, ListItemIcon, ListItemText, Tooltip, Typography, useTheme, Button, Menu, MenuItem } from "@mui/material";
-import { LaptopChromebookOutlined, Female, Male, Diamond, Window, KeyboardArrowRightOutlined } from "@mui/icons-material";
+import {
+  Box,
+  ListItemIcon,
+  ListItemText,
+  Tooltip,
+  Typography,
+  useTheme,
+  Button,
+  Menu,
+  MenuItem,
+  Fade,
+} from "@mui/material";
+import {
+  LaptopChromebookOutlined,
+  Female,
+  Male,
+  Diamond,
+  Window,
+  KeyboardArrowRightOutlined,
+} from "@mui/icons-material";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { changeAPI } from "../../../redux/changeAPISlice";
@@ -10,21 +28,28 @@ const CategoriesMenu = () => {
   const { t } = useTranslation();
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
-  const handleClick = useCallback((event) => {
-    setAnchorEl(event.currentTarget);
-  },[anchorEl]);
+  const handleClick = useCallback(
+    (event) => {
+      setAnchorEl(event.currentTarget);
+    },
+    [anchorEl]
+  );
   const handleClose = useCallback(() => {
     setAnchorEl(null);
-  },[anchorEl]);
+  }, [anchorEl]);
 
   const theme = useTheme();
   // @ts-ignore
-  const state = useSelector(state => state.dataAPI)
+  const state = useSelector((state) => state.dataAPI);
   const dispatch = useDispatch();
 
   return (
     <Box>
-      <Tooltip title={t("Categories Menu")}>
+      <Tooltip
+        TransitionComponent={Fade}
+        TransitionProps={{ timeout: 600 }}
+        title={t("Categories Menu")}
+      >
         <Button
           id="basic-button"
           aria-controls={open ? "basic-menu" : undefined}
@@ -89,13 +114,13 @@ const CategoriesMenu = () => {
               key={item.text}
               onClick={() => {
                 handleClose();
-                 item.text == "Women"
+                item.text == "Women"
                   ? dispatch(changeAPI(state.womenCategoryAPI))
                   : item.text == "Electronics"
                   ? dispatch(changeAPI(state.electronicCategoryAPI))
                   : item.text == "Jewelery"
                   ? dispatch(changeAPI(state.jeweleryCategoryAPI))
-                  : dispatch(changeAPI(state.menCategoryAPI))
+                  : dispatch(changeAPI(state.menCategoryAPI));
               }}
             >
               <ListItemIcon>{item.icon}</ListItemIcon>

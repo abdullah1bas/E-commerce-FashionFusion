@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { Box, Button, Rating, Stack, Tooltip, Typography, Card, CardActions, CardContent, CardMedia} from "@mui/material";
+import { Box, Button, Rating, Stack, Tooltip, Typography, Card, CardActions, CardContent, CardMedia, Zoom} from "@mui/material";
 import AddShoppingCartOutlinedIcon from "@mui/icons-material/AddShoppingCartOutlined";
 import { AnimatePresence, motion } from "framer-motion";
 import { useSelector } from "react-redux";
@@ -80,7 +80,7 @@ const MainProducts = ({ data, setClickedProduct, handleClickOpen }) => {
               </CardContent>
 
               <CardActions sx={{ justifyContent: "space-between" }}>
-                <Tooltip title={t("Details Product")}>
+                <Tooltip TransitionComponent={Zoom} title={t("Details Product")}>
                   <Button
                     onClick={() => {
                       handleClickOpen();

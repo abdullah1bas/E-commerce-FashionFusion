@@ -1,80 +1,104 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { IconButton, List, ListItem, ListItemText, Menu, MenuItem, Tooltip, } from "@mui/material";
+import {
+  Fade,
+  IconButton,
+  List,
+  ListItem,
+  ListItemText,
+  Menu,
+  MenuItem,
+  Tooltip,
+} from "@mui/material";
 import { ExpandMore, Facebook, Instagram, Twitter } from "@mui/icons-material";
 import ModeIcon from "./ModeIcon";
-import i18n from 'i18next';
-import { initReactI18next } from 'react-i18next';
+import i18n from "i18next";
+import { initReactI18next } from "react-i18next";
 import { t } from "i18next";
 
-const options=["EN", "FR", "AR", "CHI", "RUS"];
+const options = ["EN", "FR", "AR", "CHI", "RUS"];
 
 const ListIconHeaderMode = () => {
   const changeEN = useCallback(() => {
     i18n.changeLanguage("EN");
     document.documentElement.lang = "en";
     localStorage.setItem("langaugeSite", "EN");
-  },[]);
+  }, []);
   const changeFR = useCallback(() => {
     i18n.changeLanguage("FR");
     document.documentElement.lang = "fr";
     localStorage.setItem("langaugeSite", "FR");
-  },[]);
+  }, []);
   const changeAR = useCallback(() => {
     i18n.changeLanguage("AR");
     document.documentElement.lang = "ar";
     localStorage.setItem("langaugeSite", "AR");
-  },[]);
-  const changeCHI = useCallback( () => {
+  }, []);
+  const changeCHI = useCallback(() => {
     i18n.changeLanguage("CHI");
     document.documentElement.lang = "zh";
     localStorage.setItem("langaugeSite", "CHI");
-  },[]);
+  }, []);
   const changeRU = useCallback(() => {
     i18n.changeLanguage("RUS");
     document.documentElement.lang = "ru";
     localStorage.setItem("langaugeSite", "RUS");
-  },[]);
+  }, []);
 
   const [anchorEl, setAnchorEl] = useState(null);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const open = Boolean(anchorEl);
-  const handleClickListItem = useCallback((event) => {
-    setAnchorEl(event.currentTarget);
-  },[anchorEl]);
+  const handleClickListItem = useCallback(
+    (event) => {
+      setAnchorEl(event.currentTarget);
+    },
+    [anchorEl]
+  );
 
-  const handleMenuItemClick = useCallback((index) => {
-    setSelectedIndex(index);
-    setAnchorEl(null);
-  },[selectedIndex]);
+  const handleMenuItemClick = useCallback(
+    (index) => {
+      setSelectedIndex(index);
+      setAnchorEl(null);
+    },
+    [selectedIndex]
+  );
 
   const handleClose = useCallback(() => {
     setAnchorEl(null);
-  },[anchorEl]);
+  }, [anchorEl]);
 
   const shouldLog = useRef(true);
 
   useEffect(() => {
     // if shouldLog == because clean up effect
-    if(shouldLog.current){
+    if (shouldLog.current) {
       shouldLog.current = false;
-      if(localStorage.getItem('langaugeSite') != null) {
-      i18n
-      .use(initReactI18next)
-      .init({
-        fallbackLng: localStorage.getItem('langaugeSite'), 
-      })
-      document.documentElement.lang = localStorage.getItem('langaugeSite').toLowerCase();
-      setSelectedIndex(options.indexOf(localStorage.getItem('langaugeSite')))
-    }}
-  },[selectedIndex])
+      if (localStorage.getItem("langaugeSite") != null) {
+        i18n.use(initReactI18next).init({
+          fallbackLng: localStorage.getItem("langaugeSite"),
+        });
+        document.documentElement.lang = localStorage
+          .getItem("langaugeSite")
+          .toLowerCase();
+        setSelectedIndex(options.indexOf(localStorage.getItem("langaugeSite")));
+      }
+    }
+  }, [selectedIndex]);
 
   return (
     <>
       <ModeIcon />
 
       <div>
-        <Tooltip title={t('Transilation Lang')}>
-          <List component="nav" aria-label="Device settings" sx={{ p: 0, m: 0 }}>
+        <Tooltip
+          TransitionComponent={Fade}
+          TransitionProps={{ timeout: 600 }}
+          title={t("Transilation Lang")}
+        >
+          <List
+            component="nav"
+            aria-label="Device settings"
+            sx={{ p: 0, m: 0 }}
+          >
             <ListItem
               id="lock-button"
               aria-haspopup="listbox"
@@ -94,7 +118,7 @@ const ListIconHeaderMode = () => {
             </ListItem>
           </List>
         </Tooltip>
-        
+
         <Menu
           id="lock-menu"
           anchorEl={anchorEl}
@@ -129,7 +153,11 @@ const ListIconHeaderMode = () => {
         </Menu>
       </div>
 
-      <Tooltip title={t("Twitter")}>
+      <Tooltip
+        TransitionComponent={Fade}
+        TransitionProps={{ timeout: 600 }}
+        title={t("Twitter")}
+      >
         <IconButton href="https://www.twitter.com/">
           <Twitter
             sx={{
@@ -140,7 +168,11 @@ const ListIconHeaderMode = () => {
         </IconButton>
       </Tooltip>
 
-      <Tooltip title={t("Facebook")}>
+      <Tooltip
+        TransitionComponent={Fade}
+        TransitionProps={{ timeout: 600 }}
+        title={t("Facebook")}
+      >
         <IconButton href="https://www.facebook.com/">
           <Facebook
             sx={{
@@ -150,8 +182,12 @@ const ListIconHeaderMode = () => {
           />
         </IconButton>
       </Tooltip>
-      
-      <Tooltip title={t("Instagram")}>
+
+      <Tooltip
+        TransitionComponent={Fade}
+        TransitionProps={{ timeout: 600 }}
+        title={t("Instagram")}
+      >
         <IconButton href="https://www.instagram.com/">
           <Instagram
             sx={{

@@ -1,21 +1,42 @@
 import { useCallback, useState } from "react";
-import { IconButton, Tooltip, Avatar, Menu, MenuItem, ListItemIcon, Divider, } from "@mui/material";
-import { PersonOutlined, PersonAdd, Settings, Logout, } from "@mui/icons-material";
+import {
+  IconButton,
+  Tooltip,
+  Avatar,
+  Menu,
+  MenuItem,
+  ListItemIcon,
+  Divider,
+  Fade,
+} from "@mui/material";
+import {
+  PersonOutlined,
+  PersonAdd,
+  Settings,
+  Logout,
+} from "@mui/icons-material";
 import { useTranslation } from "react-i18next";
 
 const AccountSettings = () => {
   const { t } = useTranslation();
   const [anchorEl, setAnchorEl] = useState(null);
   const openMenu = Boolean(anchorEl);
-  const handleClick = useCallback((event) => {
-    setAnchorEl(event.currentTarget);
-  },[anchorEl]);
+  const handleClick = useCallback(
+    (event) => {
+      setAnchorEl(event.currentTarget);
+    },
+    [anchorEl]
+  );
   const handleClose = useCallback(() => {
     setAnchorEl(null);
-  },[anchorEl]);
+  }, [anchorEl]);
   return (
     <>
-      <Tooltip title={t("Account settings")}>
+      <Tooltip
+        TransitionComponent={Fade}
+        TransitionProps={{ timeout: 600 }}
+        title={t("Account settings")}
+      >
         <IconButton
           onClick={handleClick}
           aria-controls={openMenu ? "account-menu" : undefined}
@@ -63,29 +84,29 @@ const AccountSettings = () => {
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
         <MenuItem onClick={handleClose}>
-          <Avatar /> {t('Profile')}
+          <Avatar /> {t("Profile")}
         </MenuItem>
         <MenuItem onClick={handleClose}>
-          <Avatar /> {t('My account')}
+          <Avatar /> {t("My account")}
         </MenuItem>
         <Divider />
         <MenuItem onClick={handleClose}>
           <ListItemIcon>
             <PersonAdd fontSize="small" />
           </ListItemIcon>
-          {t('Add another account')}
+          {t("Add another account")}
         </MenuItem>
         <MenuItem onClick={handleClose}>
           <ListItemIcon>
             <Settings fontSize="small" />
           </ListItemIcon>
-          {t('Settings')}
+          {t("Settings")}
         </MenuItem>
         <MenuItem onClick={handleClose}>
           <ListItemIcon>
             <Logout fontSize="small" />
           </ListItemIcon>
-          {t('Logout')}
+          {t("Logout")}
         </MenuItem>
       </Menu>
     </>

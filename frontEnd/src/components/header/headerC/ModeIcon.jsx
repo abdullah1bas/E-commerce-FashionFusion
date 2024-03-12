@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { ColorModeContext } from "../../../theme";
-import { IconButton, Tooltip, useTheme } from "@mui/material";
+import { IconButton, Tooltip, Zoom, useTheme } from "@mui/material";
 import { DarkModeOutlined, LightModeOutlined } from "@mui/icons-material";
 import { useTranslation } from "react-i18next";
 
@@ -11,7 +11,7 @@ const ModeIcon = () => {
   return (
     <div>
       {theme.palette.mode === "light" ? (
-        <Tooltip title={t('Light Mode')}>
+        <Tooltip TransitionComponent={Zoom} title={t('Light Mode')}>
           <IconButton
             onClick={() => {
               localStorage.setItem(
@@ -26,7 +26,7 @@ const ModeIcon = () => {
           </IconButton>
         </Tooltip>
       ) : (
-        <Tooltip title={t('Dark Mode')}>
+        <Tooltip TransitionComponent={Zoom} title={t('Dark Mode')}>
           <IconButton
             onClick={() => {
               localStorage.setItem(
