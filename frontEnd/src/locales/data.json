@@ -89,9 +89,19 @@
     "Transilation Lang": "Langue de transition",
     "Twitter": "Twitter",
     "Facebook": "Facebook",
-    "Instagram": "Instagram"
+    "Instagram": "Instagram",
+    "EN": "AN",
+    "FR": "FR",
+    "AR": "AR",
+    "CHI": "CHI",
+    "RUS": "RUS"
   },
   "ar": {
+    "EN": "انجليزي",
+    "FR": "فرنسي",
+    "AR": "عربي",
+    "CHI": "صيني",
+    "RUS": "روسي",
     "HOT": "ساخن",
     "Free Express Shipping": "شحن سريع مجاني",
     "Light Mode": "الوضع الفاتح",
@@ -184,6 +194,11 @@
     "Instagram": "انستغرام"
   },
   "chi": {
+    "EN": "英語",
+    "FR": "法語",
+    "AR": "阿拉伯語",
+    "CHI": "中文",
+    "RUS": "俄文",
     "HOT": "горячий",
     "Free Express Shipping": "Бесплатная экспресс-доставка",
     "Light Mode": "Светлый режим",
@@ -272,6 +287,11 @@
     "Instagram": "Instagram"
   },
   "ru": {
+    "EN": "Английский",
+    "FR": "Французский",
+    "AR": "Арабский",
+    "CHI": "китайский",
+    "RUS": "русский",
     "HOT": "Горячий",
     "Free Express Shipping": "Бесплатная экспресс-доставка",
     "Light Mode": "Светлый режим",

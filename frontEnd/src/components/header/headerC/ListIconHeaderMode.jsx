@@ -1,23 +1,13 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import {
-  Fade,
-  IconButton,
-  List,
-  ListItem,
-  ListItemText,
-  Menu,
-  MenuItem,
-  Tooltip,
-} from "@mui/material";
+import { Fade, IconButton, List, ListItem, ListItemText, Menu, MenuItem, Tooltip, } from "@mui/material";
 import { ExpandMore, Facebook, Instagram, Twitter } from "@mui/icons-material";
 import ModeIcon from "./ModeIcon";
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import { t } from "i18next";
 
-const options = ["EN", "FR", "AR", "CHI", "RUS"];
-
 const ListIconHeaderMode = () => {
+  const options = [t("EN"), t("FR"), t("AR"), t("CHI"), t("RUS")];
   const changeEN = useCallback(() => {
     i18n.changeLanguage("EN");
     document.documentElement.lang = "en";
