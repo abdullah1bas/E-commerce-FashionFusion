@@ -126,15 +126,17 @@ const ListIconHeaderMode = () => {
               selected={index === selectedIndex}
               onClick={() => {
                 handleMenuItemClick(index);
-                option == "AR"
+                option == t("AR")
                   ? changeAR()
-                  : option == "FR"
+                  : option == t("FR")
                   ? changeFR()
-                  : option == "RUS"
+                  : option == t("RUS")
                   ? changeRU()
-                  : option == "CHI"
+                  : option == t("CHI")
                   ? changeCHI()
-                  : changeEN();
+                  : option == t("EN")
+                  ? changeEN()
+                  : null;
               }}
             >
               {option}
