@@ -11,9 +11,11 @@ const Hero = () => {
   return (
     <Container>
       <Box
-        sx={{ pt: 2, mt: 2.5, display: "flex", alignItems: "center", gap: 2 }}
+        sx={{ pt: 2, mt: 2.5, pr: {xs: 0, md: 2.5}, display: "flex", alignItems: "center", gap: 2 }}
       >
-        <SwiperSlider />
+        <Box sx={{width: {xs: '100%', md: '73.4%'}}}>
+          <SwiperSlider />
+        </Box>
 
         <Box sx={{ display: { xs: "none", md: "block", minWidth: "26.6%" } }}>
           <SmSliderCard
