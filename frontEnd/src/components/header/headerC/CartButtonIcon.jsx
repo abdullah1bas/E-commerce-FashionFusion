@@ -50,7 +50,7 @@ const CartButtonIcon = () => {
   let subtotal = 0;
 
   selectedProducts.forEach(
-    (item) => (subtotal += Number(item.productPrice) * Number(item.quantity))
+    (item) => (subtotal += Number(item.price) * Number(item.quantity))
   );
   return (
     <>
