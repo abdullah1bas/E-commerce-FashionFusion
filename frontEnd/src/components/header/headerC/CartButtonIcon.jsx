@@ -73,15 +73,10 @@ const CartButtonIcon = () => {
         onClose={toggleDrawer(false)}
       >
         <Box
-          sx={{ width: { xs: 300, sm: 400 }, height: "100vh" }}
+          sx={{ width: { xs: 300, sm: 400 }, height: "100vh" , display: 'flex', flexDirection: 'column'}}
           role="presentation"
         >
-          <Stack
-            p={2}
-            direction={"row"}
-            alignItems={"center"}
-            justifyContent={"space-between"}
-          >
+          <Stack p={2} direction={"row"} alignItems={"center"} justifyContent={"space-between"} >
             <Box
               sx={{
                 display: "flex",

@@ -29,8 +29,9 @@ const ProductSelectedList = () => {
   return (
     <Box
       sx={{
-        maxHeight: "600px",
-        minHeight: { xs: "520px", sm: "600px" },
+        // maxHeight: "600px",
+        // minHeight: { xs: "520px", sm: "600px" },
+        flex: '1',
         overflow: "auto",
       }}
     >
