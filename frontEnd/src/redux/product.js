@@ -6,7 +6,7 @@ export const productApi = createApi({
   reducerPath: "productApi",
   baseQuery: fetchBaseQuery({
     // @ts-ignore
-    baseUrl: `${import.meta.env.VITE_BASE_RENDER_URL}/api/`,
+    baseUrl: `https://fakestoreapi.com/`,
   }),
   endpoints: (builder) => ({
     getproductsByName: builder.query({

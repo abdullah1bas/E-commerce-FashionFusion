@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { Box, CircularProgress, Container, Dialog, IconButton, Typography, useTheme } from "@mui/material";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Close } from "@mui/icons-material";
 import ProductDetails from "./ProductDetails";
 import MainHeader from "./MainHeader";
@@ -25,6 +25,11 @@ const Main = () => {
   const { data, error, isLoading } = useGetproductsByNameQuery(state.myData);
   const [clickedProduct, setClickedProduct] = useState({});
   const theme = useTheme();
+  
+  useEffect(() => {
+    // console.log(data);
+    // if(data) console.log(data);
+  }, []);
 
   if (isLoading) {
     return (

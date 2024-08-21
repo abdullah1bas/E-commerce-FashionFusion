@@ -1,12 +1,13 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/no-unescaped-entities */
-import { Box, Stack, Typography, ToggleButton, ToggleButtonGroup } from "@mui/material";
-import { useMemo, useState } from "react";
+// import { Box, Stack, Typography, ToggleButton, ToggleButtonGroup } from "@mui/material";
+// import { useMemo, useState } from "react";
+import { Box, Typography } from "@mui/material";
 import AddToCartButton from "./AddToCartButton";
 
 const ProductDetails = ({ clickedProduct }) => {
-  const [selectedImg, setselectedImg] = useState(0);
-  const selectMemo = useMemo(() => selectedImg,[selectedImg])
+  // const [selectedImg, setselectedImg] = useState(0);
+  // const selectMemo = useMemo(() => selectedImg,[selectedImg])
 
   return (
     <Box
@@ -21,26 +22,23 @@ const ProductDetails = ({ clickedProduct }) => {
       <Box sx={{ display: "flex", height: "100%" }}>
         <img
           width={360}
-          src={
-            clickedProduct.attributes.productImg.data[selectMemo].attributes
-              .url
-          }
-          alt={clickedProduct.attributes.productTitle}
+          src={clickedProduct.image}
+          alt={clickedProduct.title}
         />
       </Box>
 
       <Box sx={{ py: 2, textAlign: { xs: "center", sm: "left" } }}>
         <Typography variant="h5" sx={{ textTransform: "capitalize !important" }}>
-          {clickedProduct.attributes.productTitle}
+          {clickedProduct.title}
         </Typography>
         <Typography my={0.4} fontSize={"22px"} color={"crimson"} variant="h6">
-          ${clickedProduct.attributes.productPrice}
+          ${clickedProduct.price}
         </Typography>
         <Typography variant="body1" px={'4px'}>
-          {clickedProduct.attributes.productDescription}
+          {clickedProduct.description}
         </Typography>
 
-        <Stack
+        {/* <Stack
           sx={{ justifyContent: { xs: "center", sm: "left" } }}
           direction={"row"}
           gap={1}
@@ -78,14 +76,14 @@ const ProductDetails = ({ clickedProduct }) => {
                     style={{ borderRadius: 3 }}
                     height={"100%"}
                     width={"100%"}
-                    src={item.attributes.url}
-                    alt={clickedProduct.attributes.productTitle}
+                    src={item.image}
+                    alt={clickedProduct.title}
                   />
                 </ToggleButton>
               );
             })}
           </ToggleButtonGroup>
-        </Stack>
+        </Stack> */}
 
         <AddToCartButton clickedProduct={clickedProduct} />
       </Box>

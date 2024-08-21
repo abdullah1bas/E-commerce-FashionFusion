@@ -33,6 +33,7 @@ const CartButtonIcon = () => {
   const theme = useTheme();
   // eslint-disable-next-line react/prop-types
   const { selectedProducts } = useSelector((state) => state.cart);
+  // console.log(selectedProducts);
 
   const [state, setState] = useState(false);
 

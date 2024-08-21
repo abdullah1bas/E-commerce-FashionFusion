@@ -1,11 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
-    myData: "products?populate=*",
-    allProductAPI: "products?populate=*",
-    menCategoryAPI: "products?populate=*&filters[category][$eq]=men",
-    womenCategoryAPI: "products?populate=*&filters[category][$eq]=women",
-    jeweleryCategoryAPI: "products?populate=*&filters[category][$eq]=jewelery",
-    electronicCategoryAPI: "products?populate=*&filters[category][$eq]=electronics",
+    myData: "products",
+    allProductAPI: "products",
+    menCategoryAPI: "products/category/men's clothing",
+    womenCategoryAPI: "products/category/women's clothing",
+    jeweleryCategoryAPI: "products/category/jewelery",
+    electronicCategoryAPI: "products/category/electronics",
 }
 export const changeAPISlice = createSlice({
     initialState,

@@ -18,8 +18,7 @@ export const counterSlice = createSlice({
     addToCart: (state, action) => {
       // action.payload => product From API => القيمة التى بداخل الاقواس
       const productWithQuantity = {
-        ...action.payload.attributes,
-        id: action.payload.id,
+        ...action.payload,
         quantity: 1,
       };
       state.selectedProducts.push(productWithQuantity);

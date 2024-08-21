@@ -18,7 +18,7 @@ const MainProducts = ({ data, setClickedProduct, handleClickOpen }) => {
     >
       {/* AnimatePresence da 3hsan lw 7bat delete 3nasr yfdl sh8al */}
       <AnimatePresence>
-        {data.data.map((item) => {
+        {data.map((item) => {
           return (
             // example {framer motion filter animation website}
             <Card
@@ -45,8 +45,8 @@ const MainProducts = ({ data, setClickedProduct, handleClickOpen }) => {
                 <CardMedia
                   sx={{ height: 277, backgroundSize: "contain" }}
                   // @ts-ignore
-                  image={item.attributes.productImg.data[0].attributes.url}
-                  title={item.attributes.productTitle}
+                  image={item.image}
+                  title={item.title}
                 />
               </Box>
 
@@ -62,11 +62,11 @@ const MainProducts = ({ data, setClickedProduct, handleClickOpen }) => {
                     component="h3"
                     sx={{ textTransform: "capitalize !important" }}
                   >
-                    {item.attributes.productTitle}
+                    {item.title}
                   </Typography>
 
                   <Typography variant="subtitle1" component="p">
-                    ${item.attributes.productPrice}
+                    ${item.price}
                   </Typography>
                 </Stack>
 
@@ -75,7 +75,7 @@ const MainProducts = ({ data, setClickedProduct, handleClickOpen }) => {
                   variant="body2"
                   color="text.secondary"
                 >
-                  {item.attributes.productDescription}
+                  {item.description}
                 </Typography>
               </CardContent>
 
@@ -102,7 +102,7 @@ const MainProducts = ({ data, setClickedProduct, handleClickOpen }) => {
                   // da y3ne b2olo an y7ot al value lw kan 3ashre
                   precision={0.1}
                   name="read-only"
-                  value={item.attributes.productRating}
+                  value={item.rating.rate}
                   readOnly
                 />
               </CardActions>

@@ -25,6 +25,7 @@ const AddToCartButton = ({ clickedProduct }) => {
     });
     return myProduct.quantity;
   },[selectedProducts]);
+  // console.log(clickedProduct);
   return (
     <>
       {selectedProductsID.includes(clickedProduct.id) ? (

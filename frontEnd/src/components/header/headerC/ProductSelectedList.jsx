@@ -24,6 +24,7 @@ const ProductSelectedList = () => {
   const dispatch = useDispatch();
   // eslint-disable-next-line react/prop-types
   const { selectedProducts } = useSelector((state) => state.cart);
+  // console.log(selectedProducts);
 
   return (
     <Box
@@ -36,14 +37,7 @@ const ProductSelectedList = () => {
       {selectedProducts.map((item) => {
         return (
           <Box key={item.id}>
-            <Stack
-              gap={{ xs: 1, sm: 2 }}
-              width={"100%"}
-              direction={"row"}
-              alignItems={"center"}
-              py={{ xs: 1, sm: 2 }}
-              px={1}
-            >
+            <Stack gap={{ xs: 1, sm: 2 }} width={"100%"} direction={"row"} alignItems={"center"} py={{ xs: 1, sm: 2 }} px={1} >
               <Stack
                 sx={{
                   width: 32,
@@ -89,7 +83,7 @@ const ProductSelectedList = () => {
                 }}
               >
                 <img
-                  src={item.productImg.data[0].attributes.url}
+                  src={item.image}
                   width={"100%"}
                   height={"100%"}
                 />
@@ -108,9 +102,9 @@ const ProductSelectedList = () => {
                     fontSize: { xs: 13, sm: 16 },
                   }}
                 >
-                  {item.productTitle.length <= 18
-                    ? item.productTitle
-                    : `${item.productTitle.slice(0, 18)}...`}
+                  {item.title.length <= 18
+                    ? item.title
+                    : `${item.title.slice(0, 18)}...`}
                 </Typography>
 
                 <Typography
@@ -122,7 +116,7 @@ const ProductSelectedList = () => {
                         : theme.palette.text.secondary,
                   }}
                 >
-                  ${item.productPrice} X {item.quantity}
+                  ${item.price} X {item.quantity}
                 </Typography>
 
                 <Typography
@@ -133,7 +127,7 @@ const ProductSelectedList = () => {
                   }}
                 >
                   $
-                  {(Number(item.productPrice) * Number(item.quantity)).toFixed(
+                  {(Number(item.price) * Number(item.quantity)).toFixed(
                     2
                   )}
                 </Typography>
